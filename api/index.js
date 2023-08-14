@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const { JWT_SECRET } = process.env;
 
 
 router.use((req, res, next) => {
@@ -19,6 +17,22 @@ router.get('/health', async (req, res, next) => {
     });
 });
 
+//Router: /api/users
+const usersRouter = require('./users');
+router.use('/users', usersRouter);
+
+//Page Not Found
+router.use('/', (req, res, next) => {
+    res.status(400);
+    res.send(
+        next({
+            message: 'Page Not Found',
+            name: 'Page Not Found',
+            error: 'Page Not Found'
+        })
+    )
+});
+
 //Error Handler
 router.use((error, req, res, next) => {
     res.send({
@@ -27,5 +41,6 @@ router.use((error, req, res, next) => {
         error: error.error
     })
 });
+
 
 module.exports = router;
