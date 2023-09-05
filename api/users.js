@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const SECRET = process.env.JWT_SECRET;
 const bcrypt = require('bcrypt');
-const { createUser, getUserById, getUserByUsername } = require('../db');
+const { createUser, getUserById, getUserByUsername, updateStatus, getStatus } = require('../db');
 
 
 const requireUser = async(req, res, next) => {
@@ -34,7 +34,7 @@ const requireUser = async(req, res, next) => {
 };
 
 usersRouter.post("/register", async (req, res, next) => {
-  const { username, password, firstname, lastname, email } = req.body;
+  const { username, password, firstname, lastname, email, children } = req.body;
 
   if (password.length < 8) {
     console.error("Password must be at least 8 characters in length");
@@ -63,6 +63,7 @@ usersRouter.post("/register", async (req, res, next) => {
       firstname,
       lastname,
       email,
+      children
     });
 
     if (newUser) {
@@ -134,6 +135,35 @@ usersRouter.get('/me', requireUser, async (req, res, next) => {
         next(error);
     }
 });
+
+usersRouter.get('/dashboard', async (req, res, next) => {
+  try {
+      res.send(req.user);
+  } catch (error) {
+      next(error);
+  }
+});
+
+usersRouter.patch('/dashboard/:userId', async (req, res, next) => {
+  const { userId } = req.params;
+  const { currentStatus } = req.body;
+  try {
+    const response = await updateStatus(currentStatus, userId);
+    res.status(200).json(response);
+  } catch (error) {
+    next(error);
+  }
+});
+
+usersRouter.get('/dashboard/:userId', async (req, res, next) => {
+  const {userId} = req.params;
+  try {
+    const response = await getStatus(userId);
+    res.status(200).json(response);
+  } catch (error) {
+    next(error);
+  }
+})
 
 
 module.exports = usersRouter;

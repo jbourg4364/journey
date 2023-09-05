@@ -23,8 +23,10 @@ async function createTables() {
             password VARCHAR(255) NOT NULL,
             firstname VARCHAR(255) NOT NULL,
             lastname VARCHAR(255) NOT NULL,
-            email VARCHAR(255) UNIQUE NOT NULL
-        )
+            email VARCHAR(255) UNIQUE NOT NULL,
+            status VARCHAR(255) DEFAULT 'Not in line',
+            children VARCHAR(255) NOT NULL
+        );
         `);
         console.log('Finished creating tables...');
     } catch (error) {
@@ -37,11 +39,20 @@ async function createInitialUsers() {
     try {
         const pendingUsers = [
             {
+                username: 'admin',
+                password: 'PPE985252',
+                firstname: 'Admin',
+                lastname: 'Admin',
+                email: 'admin@gmail.com',
+                children: 'none'
+            },
+            {
                 username: 'test123',
                 password: 'testPassword123',
                 firstname: 'First',
                 lastname: 'Last',
-                email: 'testUser@gmail.com'
+                email: 'testUser@gmail.com',
+                children: 'none'
             }
         ];
 

@@ -1,16 +1,20 @@
 import React from 'react';
 import './Home.css';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
     <div className="home-banner">
       <h1 className="banner-heading">
-        Journey brings all your tasks, teammates, and tools together
+        CarQ makes carline pickup easier and more efficient than ever
       </h1>
       <h2 className="banner-heading">
-        Keep everything in the same place—even if your team isn’t.
+        Stay in your car while letting school staff know that you're in line!
       </h2>
-      <button className='signup-button'>Sign up - it's free!</button>
+      <Link to='/register'>
+        <button className="signup-button">Sign up - it's free!</button>
+      </Link>
+        
     </div>
   );
 };

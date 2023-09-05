@@ -21,6 +21,10 @@ router.get('/health', async (req, res, next) => {
 const usersRouter = require('./users');
 router.use('/users', usersRouter);
 
+//Router: /api/admin
+const adminRouter = require('./admin');
+router.use('/admin', adminRouter);
+
 //Page Not Found
 router.use('/', (req, res, next) => {
     res.status(400);

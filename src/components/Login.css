@@ -1,0 +1,68 @@
+.nav-logo {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-input {
+    font-size: 20px;
+    height: 20px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.login-button {
+    padding: 10px;
+    font-size: 20px;
+    margin: 10px;
+    background-color: #59ac44;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.login-button:hover {
+    background-color: #417c32;
+    cursor: pointer;
+}
+
+a {
+    text-align: center;
+    text-decoration: none;
+    text-emphasis: none;
+    text-transform: none;
+    color: black;
+    font-size: 20px;
+}
+
+a:hover {
+    cursor: pointer;
+
+}
+
+#home-button {
+    border: 2px solid black;
+    padding: 0px 20px;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+#home-button:hover {
+    background-color: black;
+    color: white;
+}

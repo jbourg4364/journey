@@ -57,6 +57,7 @@
 .nav-register h2 {
     background-color: #0164ff;
     color: white;
+    border-radius: .3rem;
 }
 
 @media screen and (max-width: 800px) {

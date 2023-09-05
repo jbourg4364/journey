@@ -8,16 +8,17 @@ async function createUser({
     password,
     firstname,
     lastname,
-    email
+    email,
+    children
 }) {
     try {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         const { rows: [user] } = await client.query(`
-        INSERT INTO users(username, password, firstname, lastname, email)
-        VALUES($1, $2, $3, $4, $5)
+        INSERT INTO users(username, password, firstname, lastname, email, children)
+        VALUES($1, $2, $3, $4, $5, $6)
         RETURNING *;
-        `, [username, hashedPassword, firstname, lastname, email]);
+        `, [username, hashedPassword, firstname, lastname, email, children]);
 
         return {
             id: user.id,
@@ -78,10 +79,31 @@ async function getUser({ username, password }) {
     }
 };
 
+async function updateStatus(currentStatus, userId) {
+    const { rows: [user] } = await client.query(`
+    UPDATE users
+    SET status = $1
+    WHERE id = $2;
+    `, [currentStatus, userId]);
+
+    return user;
+};
+
+async function getStatus(userId) {
+    const { rows: [status] } = await client.query(`
+    SELECT status FROM users
+    WHERE id = $1;
+    `, [userId]);
+
+    return status;
+};
+
 
 module.exports = {
     createUser,
     getUserById,
     getUserByUsername,
-    getUser
+    getUser,
+    updateStatus,
+    getStatus
 };

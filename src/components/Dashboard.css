@@ -1,0 +1,84 @@
+@keyframes pulse {
+    0% {
+      background-color: green;
+      transform: scale(1);
+    }
+    50% {
+      background-color: rgba(0, 189, 0, 0); /* Change to the color you want during the pulse */
+      transform: scale(1.05);
+    }
+    100% {
+      background-color: green;
+      transform: scale(1);
+    }
+  }
+  
+
+#dashboard {
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 2%, rgba(0,128,0,1) 48%, rgba(255,255,255,1) 78%);
+    display: block;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    height: 600px;
+    padding-top: 70px;
+    background-size: cover;
+    width: 100vw;
+    transform: translateX(-1.55%);
+}
+
+.status-container {
+   text-align: center;
+   font-size: 25px;
+   line-height: 5px;
+   border: 2px solid black;
+   padding: 20px;
+   width: 60%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   background-color: white;
+   border-radius: 5px;
+}
+
+h3#status {
+    text-transform: capitalize;
+}
+
+#join-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 30px;
+    font-weight: 800;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    letter-spacing: .5px;
+    border: 1px solid white;
+    animation: pulse 2s infinite; /* Adjust the duration and timing as needed */
+}
+
+#join-button:hover {
+    cursor: pointer;
+    background-color: black;
+}
+
+#school-name {
+    font-size: 30px;
+    letter-spacing: 0px;
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+#join-button.exit {
+    background-color: red;
+    animation: none; /* Adjust the duration and timing as needed */
+}
+
+#join-button:hover {
+    cursor: pointer;
+    background-color: black;
+}
