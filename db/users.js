@@ -56,7 +56,7 @@ async function getUserByUsername(username) {
     }
 };
 
-async function getUser({ username, password }) {
+async function getUser(username, password) {
     try {
         const user = await getUserByUsername(username);
 

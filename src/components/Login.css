@@ -1,5 +1,10 @@
+#login-page {
+    overflow-x: hidden;
+}
+
 .nav-logo {
     text-align: center;
+   
 }
 
 h2 {
@@ -10,9 +15,7 @@ form {
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
 }
 
 .login-input {
@@ -21,6 +24,7 @@ form {
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
+
 }
 
 .login-button {

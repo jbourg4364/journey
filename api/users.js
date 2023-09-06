@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const SECRET = process.env.JWT_SECRET;
 const bcrypt = require('bcrypt');
-const { createUser, getUserById, getUserByUsername, updateStatus, getStatus } = require('../db');
+const { createUser, getUserById, getUserByUsername, updateStatus, getStatus, getAllCarlineParents } = require('../db');
 
 
 const requireUser = async(req, res, next) => {
@@ -164,6 +164,24 @@ usersRouter.get('/dashboard/:userId', async (req, res, next) => {
     next(error);
   }
 })
+
+usersRouter.get('/carline', async (req, res, next) => {
+  try {
+      const response = await getAllCarlineParents();
+      res.status(200).json(response);
+
+  } catch (error) {
+      next(error)
+  }
+});
+
+usersRouter.get('/PPEStaff', async (req, res, next) => {
+  try {
+    res.send(req.user);
+} catch (error) {
+    next(error);
+}
+});
 
 
 module.exports = usersRouter;

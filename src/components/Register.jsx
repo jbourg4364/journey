@@ -31,7 +31,7 @@ const Register = ({ setToken, setUser, setIsLoggedIn, token }) => {
         localStorage.setItem('token', result.token);
         localStorage.setItem('id', result.user.id);
         window.alert(`Congratulations! You're registered with CarQ!`);
-        const fetchedUser = await getMe(token);
+        const fetchedUser = await getMe(result.token);
         setUser(fetchedUser);
         navigate('/dashboard');
       }
@@ -39,11 +39,11 @@ const Register = ({ setToken, setUser, setIsLoggedIn, token }) => {
   };
 
   return (
-    <div>
+    <div id='register-page'>
       <h1 className="logo">CarQ</h1>
       <h2 className="school-heading">Pierre Part Elementary School</h2>
       <h2>Sign up to continue</h2>
-      <form onSubmit={handleSubmit} ref={inputElement}>
+      <form onSubmit={handleSubmit} ref={inputElement} id='register-form'>
         <input 
           placeholder="First name"
           type="text"

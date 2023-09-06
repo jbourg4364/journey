@@ -23,8 +23,9 @@ const Login = ({ setIsLoggedIn, setUser, setToken }) => {
             localStorage.setItem('currentUser', data.user.username);
             localStorage.setItem('token', data.token);
             localStorage.setItem('id', data.user.id);
-            if (data.user.username == 'admin' && password == 'PPE985252') {
-                navigate('/admin/PPEStaff/dashboard')
+            if (username === 'admin') {
+                navigate('/PPEStaff');
+                
             } else {
                 navigate('/dashboard');
             }
@@ -39,7 +40,7 @@ const Login = ({ setIsLoggedIn, setUser, setToken }) => {
 
     
   return (
-    <div>
+    <div id='login-page'>
         <h1 className="nav-logo">CarQ</h1>
         <h2>Log in to CarQ</h2>
         <form ref={inputElement} onSubmit={handleSubmit}>

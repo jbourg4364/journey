@@ -5,16 +5,20 @@ import './Administration.css';
 
 const Administration = () => {
   const [carlineParents, setCarlineParents] = useState([]);
-  const [pickedUp, setPickedUp] = useState([]);
+  // const [pickedUp, setPickedUp] = useState([]);
 
   useEffect(() => {
     const getCarline = async () => {
-      const response = await getAllCarlineParents();
-
-      setCarlineParents(response);
+      try {
+        const response = await getAllCarlineParents();
+        setCarlineParents(response);
+      } catch (error) {
+        console.error("Error fetching carline parents:", error);
+      }
     };
     getCarline();
   }, []);
+  
 
   const handleStatusChange = async (userId) => {
     const currentStatus = 'Not in line';
@@ -23,8 +27,9 @@ const Administration = () => {
     setCarlineParents(updated)
   
   }
-console.log(pickedUp)
+
   return (
+
     <div>
       <DashNav />
       <div id="dashboard">
@@ -35,13 +40,15 @@ console.log(pickedUp)
             <li key={child.id}>
             {child.children}
             <p><strong>Parent: </strong>{child.firstname} {child.lastname}</p>
-            <input className='checkbox' type='checkbox' onChange={(() => handleStatusChange(child.id))}/>
+            <input className='checkbox' type='checkbox' onChange={() => handleStatusChange(child.id)} id='checkbox'/>
             </li>
             
           ))}
         </div>
       </div>
     </div>
+
+    
   );
 };
 

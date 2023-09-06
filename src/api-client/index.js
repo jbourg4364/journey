@@ -38,14 +38,9 @@ export const getStatus = async (userId) => {
 
 export const getAllCarlineParents = async () => {
     try {
-        const response = await fetch(`${BASE}/admin/PPEStaff/dashboard`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        });
+        const response = await fetch(`${BASE}/users/carline`);
         const result = await response.json();
-
+ 
         return result;
     } catch (error) {
         console.error('Error getting all carline parents', error)

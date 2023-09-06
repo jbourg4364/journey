@@ -16,6 +16,8 @@ const DashNav = ({ setIsLoggedIn, setUser, setToken }) => {
     };
 
 
+
+
   return (
     <div id='nav'>
       <h1 id='logo'>CarQ</h1>

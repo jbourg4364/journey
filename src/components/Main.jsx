@@ -20,9 +20,7 @@ const Main = () => {
           if (fetchedUser) {
             setUser(fetchedUser.username);
             setIsLoggedIn(true);
-            if (location.pathname === '/') {
-              navigate('/dashboard');
-            }
+            
           }
         } catch (error) {
           console.error('Error fetching user', error)
@@ -30,11 +28,11 @@ const Main = () => {
       }
     };
     fetchUser();
-  }, [navigate]);
+  }, []);
 
   return (
     <>
-    {location.pathname !== '/register' && location.pathname !== '/login' && location.pathname !== '/dashboard' && location.pathname !== '/admin/PPEStaff/dashboard' && (
+    {location.pathname !== '/register' && location.pathname !== '/login' && location.pathname !== '/dashboard' && location.pathname !== '/PPEStaff' && (
       <Nav />
     )}
       <Routes>
@@ -55,8 +53,8 @@ const Main = () => {
         element={<Dashboard isLoggedIn={isLoggedIn} setUser={setUser} setToken={setToken}/>}
         />
         <Route 
-        path='/admin/PPEStaff/dashboard'
-        element={<Administration />}
+        path='/PPEStaff'
+        element={<Administration user={user} token={token}/>}
         />
       </Routes>
     </>
