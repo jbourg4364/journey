@@ -80,5 +80,5 @@ h3#status {
 
 #join-button:hover {
     cursor: pointer;
-    background-color: black;
+    background-color: red;
 }

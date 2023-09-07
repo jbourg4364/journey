@@ -30,7 +30,7 @@ const Administration = () => {
 
   return (
 
-    <div>
+    <div id='admin-page'>
       <DashNav />
       <div id="dashboard">
         <h2 id="school-name">Pierre Part Elementary School</h2>
@@ -40,10 +40,11 @@ const Administration = () => {
             <li key={child.id}>
             {child.children}
             <p><strong>Parent: </strong>{child.firstname} {child.lastname}</p>
-            <input className='checkbox' type='checkbox' onChange={() => handleStatusChange(child.id)} id='checkbox'/>
+            <hr></hr>
+            <p className='pickedup'>Picked up?</p><input className='pickedup' type='checkbox' onChange={() => handleStatusChange(child.id)} id='checkbox'/>
             </li>
-            
           ))}
+         
         </div>
       </div>
     </div>

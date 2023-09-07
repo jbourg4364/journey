@@ -1,25 +1,31 @@
 /* Administration.css */
 
-/* Style for the list items */
+#admin-page {
+  overflow-x:hidden;
+}
+
 .ind-parent li {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; /* Adjust as needed */
+    flex-direction: column;
+    margin-bottom: 5px;
     justify-content: space-between;
-    margin: 15px;
+    margin: 10px;
     font-size: 20px;
     background-color: white;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
+    line-height: 10px;
+  
   }
   
-  /* Style for the text fields (Parent name) */
   .ind-parent li p {
-    margin-right: 10px; /* Add spacing between text and checkbox */
+    margin-right: 0px;
+
   }
   
   /* Style for the checkbox */
-  .ind-parent li .checkbox {
+  .ind-parent li #checkbox {
     margin: 0;
     width: 20px;
     height: 20px;
@@ -32,3 +38,14 @@
     margin: 0px;
     color: white;
   }
+
+  .pickedup {
+    margin: 10px;
+  }
+
+  hr {
+    color: black;
+    width: 80vw;
+  }
+
+ 
