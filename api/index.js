@@ -48,6 +48,9 @@ router.get('/health', async (req, res, next) => {
 const usersRouter = require('./users');
 router.use('/users', usersRouter);
 
+const adminRouter = require('./admin');
+router.use('/admin', adminRouter);
+
 
 router.use("/", (req, res, next) =>{
   res.status(404);

@@ -6,6 +6,7 @@ async function dropTables() {
     console.log('Dropping tables...');
     try {
         await client.query(`
+        DROP TABLE IF EXISTS picked_up;
         DROP TABLE IF EXISTS users;
         `);
     } catch (error) {
@@ -25,7 +26,14 @@ async function createTables() {
             lastname VARCHAR(255) NOT NULL,
             email VARCHAR(255) UNIQUE NOT NULL,
             status VARCHAR(255) DEFAULT 'Not in line',
-            children VARCHAR(255) NOT NULL
+            children VARCHAR(255) UNIQUE NOT NULL
+        );
+
+        CREATE TABLE picked_up (
+            id SERIAL PRIMARY KEY,
+            "parentId" INT REFERENCES users(id),
+            "allChildren" VARCHAR(255) REFERENCES users(children),
+            pickedUpDate TIMESTAMP DEFAULT NOW()
         );
         `);
         console.log('Finished creating tables...');
@@ -52,7 +60,7 @@ async function createInitialUsers() {
                 firstname: 'First',
                 lastname: 'Last',
                 email: 'testUser@gmail.com',
-                children: 'none'
+                children: 'one'
             }
         ];
 
@@ -79,3 +87,12 @@ async function rebuildDB() {
 module.exports = {
     rebuildDB
 };
+
+// CREATE TABLE picked_up (
+//     id SERIAL PRIMARY KEY,
+//     "parentId" INTEGER REFERENCES users(id),
+//     "parentfname" VARCHAR(255) REFERENCES users(firstname),
+//     "parentlname" VARCHAR(255) REFERENCES users(lastname),
+//     "parentchildren" VARCHAR(255) REFERENCES users(children),
+//     picked_up_date TIMESTAMP DEFAULT NOW()
+// );

@@ -2,6 +2,19 @@
 
 #admin-page {
   overflow-x:hidden;
+  
+}
+
+#dashboard-admin {
+  background-color: green;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 650px;
+    padding-top: 70px;
+    background-size: cover;
+    width: 100%;
+ 
 }
 
 .ind-parent li {
@@ -46,6 +59,17 @@
   hr {
     color: black;
     width: 80vw;
+  }
+
+  #pickedup-list {
+    padding-top: 75px;
+  }
+
+  .pickedup-ind {
+    text-align: center;
+    list-style: none;
+    color: white;
+    font-size: 20px;
   }
 
  

@@ -46,3 +46,32 @@ export const getAllCarlineParents = async () => {
         console.error('Error getting all carline parents', error)
     }
 };
+
+export const insertPickedUp = async (parentId, children) => {
+    try {
+        const response = await fetch(`${BASE}/admin/${parentId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({children}),
+        });
+        const result = await response.json();
+
+        return result;
+    } catch (error) {
+        console.error('Error in middleware inserting student into picked up table', error);
+    }
+};
+
+export const getAllPickedUp = async () => {
+    try {
+        const response = await fetch(`${BASE}/admin`);
+        const result = await response.json();
+
+        return result;
+    } catch (error) {
+        console.error('Error in middleware getting all picked up students', error);
+    }
+};
+

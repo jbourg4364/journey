@@ -1,5 +1,6 @@
 module.exports = {
     ...require('./client'),
     ...require('./users'),
-    ...require('./admin')
+    ...require('./admin'),
+    ...require('./pickedup')
 };
