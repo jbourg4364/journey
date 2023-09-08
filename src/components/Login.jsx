@@ -6,6 +6,7 @@ import './Login.css';
 const Login = ({ setIsLoggedIn, setUser, setToken }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    
     const inputElement = useRef();
     const navigate = useNavigate();
 

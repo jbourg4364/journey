@@ -6,7 +6,7 @@ import './Administration.css';
 const Administration = () => {
   const [carlineParents, setCarlineParents] = useState([]);
   const [pickedUp, setPickedUp] = useState([]);
-  
+ 
 
   useEffect(() => {
     const getCarline = async () => {
@@ -16,6 +16,7 @@ const Administration = () => {
 
         const nextResp = await getAllPickedUp();
         setPickedUp(nextResp)
+  
       } catch (error) {
         console.error("Error fetching carline parents:", error);
       }
@@ -35,7 +36,7 @@ const Administration = () => {
 
     const newPickedUp = await getAllPickedUp();
     setPickedUp(newPickedUp);
-
+    
   };
 
   const formatDate = (dateString) => {
@@ -54,6 +55,10 @@ const Administration = () => {
     return date.toLocaleTimeString(undefined, options);
   };
 
+  const today = formatDate(new Date());
+  const filteredPickedUp = pickedUp.filter((item) => {
+    return formatDate(item.pickedupdate) === today;
+  });
 
 
   return (
@@ -75,16 +80,29 @@ const Administration = () => {
           ))}
         </div>
         ) : (
-          <h3 id='queue-heading'>No one in line!</h3>
+          <div>
+            <hr></hr>
+            <h3 id='queue-heading'>No one in line!</h3>
+          </div>
+          
         )}
         
         <div id='pickedup-list'>
-          <h3 id='queue-heading'>Picked Up Today</h3>
-          <hr></hr>
-          {pickedUp.map((name) => (
-            <li key={name.id} className="pickedup-ind">{name.allChildren} | {`${formatDate(name.pickedupdate)}`} | {`${formatTime(name.pickedupdate)}`}</li>
-            
-          ))}
+          <h3 id='pickedup-heading'>Today's Roster</h3>
+          {filteredPickedUp.length ? (
+          <div>
+            {filteredPickedUp.map((name) => (
+              <li key={name.id} className='pickedup-ind'>
+                {name.allChildren} | {`${formatDate(name.pickedupdate)}`} | {`${formatTime(name.pickedupdate)}`}
+              </li>
+            ))}
+          </div>
+        ) : (
+          <div>
+            <hr></hr>
+            <h3 id='queue-heading'>No pickups for today.</h3>
+          </div>
+        )}
         </div>
       </div>
     </div>

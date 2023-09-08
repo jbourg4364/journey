@@ -1,6 +1,5 @@
 const express = require('express');
 const adminRouter = express.Router();
-const cron = require('node-cron');
 const { insertPickedUp, getAllPickedUp, clearPickedUpTable } = require('../db');
 
 adminRouter.get('/', async (req, res, next) => {
@@ -23,14 +22,7 @@ adminRouter.post('/:parentId', async (req, res, next) => {
     }
 });
 
-cron.schedule('0 0 * * *', async () => {
-    try {
-      await clearPickedUpTable();
 
-    } catch (error) {
-      console.error('Error clearing picked up table at midnight', error);
-    }
-  });  
 
 
 

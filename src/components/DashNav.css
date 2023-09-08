@@ -19,3 +19,16 @@
     cursor: pointer;
     font-weight: bold;
 }
+
+#middle-container {
+    display: flex;
+    align-items: center;
+   width: 100px;
+   justify-items: center;
+   justify-content: space-between;
+}
+
+#past-rosters:hover {
+    color: green;
+    cursor: pointer;
+}

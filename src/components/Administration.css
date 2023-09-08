@@ -72,4 +72,15 @@
     font-size: 20px;
   }
 
+  #pickedup-heading {
+    text-align: center;
+    font-size: 25px;
+    margin: 25px;
+    border: 2px solid black;
+    margin-bottom: 5px;
+    background-color: white;
+    color: black;
+    
+  }
+
  
