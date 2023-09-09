@@ -1,13 +1,12 @@
-# fly.toml app configuration file generated for carq2 on 2023-09-05T16:02:20-05:00
+# fly.toml app configuration file generated for carq on 2023-09-08T14:34:38-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "carq2"
-primary_region = "atl"
+app = "carq"
+primary_region = "dfw"
 
-[deploy]
-  release_command = "npm run seed"
+
 
 [http_service]
   internal_port = 3000

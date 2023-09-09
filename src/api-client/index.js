@@ -1,7 +1,7 @@
-const BASE = 'http://localhost:8080/api';
+// const BASE = 'http://localhost:8080/api';
 
-// deployment
-// const BASE = 'api';
+// deployment`
+const BASE = 'api';
 
 export const updateStatus = async (currentStatus, userId) => {
     try {
@@ -67,6 +67,17 @@ export const insertPickedUp = async (parentId, children) => {
 export const getAllPickedUp = async () => {
     try {
         const response = await fetch(`${BASE}/admin`);
+        const result = await response.json();
+
+        return result;
+    } catch (error) {
+        console.error('Error in middleware getting all picked up students', error);
+    }
+};
+
+export const getHistory = async () => {
+    try {
+        const response = await fetch(`${BASE}/admin/history`);
         const result = await response.json();
 
         return result;

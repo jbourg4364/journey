@@ -25,7 +25,7 @@ const Login = ({ setIsLoggedIn, setUser, setToken }) => {
             localStorage.setItem('token', data.token);
             localStorage.setItem('id', data.user.id);
             if (username === 'admin') {
-                navigate('/PPEStaff');
+                navigate('/admin');
                 
             } else {
                 navigate('/dashboard');

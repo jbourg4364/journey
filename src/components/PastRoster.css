@@ -1,0 +1,35 @@
+#past-roster-container {
+    background-color: green;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 650px;
+    padding-top: 70px;
+    background-size: cover;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.dropdown {
+    width: fit-content;
+    font-size: 17px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    text-align: center;
+  }
+
+  .pickedup-history {
+    color: white;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+ 

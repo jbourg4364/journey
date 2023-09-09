@@ -1,22 +1,30 @@
 @keyframes pulse {
     0% {
-      background-color: green;
+      background-color: white;
+      color: black;
       transform: scale(1);
     }
     50% {
       background-color: rgba(0, 189, 0, 0); /* Change to the color you want during the pulse */
       transform: scale(1.05);
+      color: white;
     }
     100% {
-      background-color: green;
+      background-color: white;
       transform: scale(1);
+      color: black;
     }
   }
   
 
+
+#dashboard-page {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 #dashboard {
-    background: rgb(0,0,0);
-    background: radial-gradient(circle, rgba(0,0,0,1) 2%, rgba(0,128,0,1) 48%, rgba(255,255,255,1) 78%);
+  background-color: green;
     display: block;
     margin-left: 0 auto;
     margin-right: 0 auto;
@@ -70,7 +78,7 @@ h3#status {
     font-size: 30px;
     letter-spacing: 0px;
     color: white;
-    text-shadow: 3px 3px 3px black;
+    text-shadow: 2px 2px 2px black;
 }
 
 #join-button.exit {

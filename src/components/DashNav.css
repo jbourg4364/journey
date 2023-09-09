@@ -23,12 +23,15 @@
 #middle-container {
     display: flex;
     align-items: center;
-   width: 100px;
-   justify-items: center;
-   justify-content: space-between;
+    width: 135px;
+    justify-content: center;
 }
 
 #past-rosters:hover {
     color: green;
     cursor: pointer;
+}
+
+#past-rosters {
+    margin-left: 10px;
 }

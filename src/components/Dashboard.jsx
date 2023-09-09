@@ -45,7 +45,7 @@ const Dashboard = ({ setIsLoggedIn, setUser, setToken }) => {
   };
 
   return (
-    <div>
+    <div id='dashboard-page'>
       <DashNav
         setIsLoggedIn={setIsLoggedIn}
         setUser={setUser}

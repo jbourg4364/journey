@@ -11,6 +11,8 @@ adminRouter.get('/', async (req, res, next) => {
     }
 });
 
+
+
 adminRouter.post('/:parentId', async (req, res, next) => {
     const { parentId } = req.params;
     const { children } = req.body;
@@ -22,6 +24,14 @@ adminRouter.post('/:parentId', async (req, res, next) => {
     }
 });
 
+adminRouter.get('/history', async (req, res, next) => {
+    try {
+        const response = await getAllPickedUp();
+        res.status(200).json(response);
+    } catch (error) {
+        console.error('Error in routing to get all picked up students', error);
+    }
+});
 
 
 

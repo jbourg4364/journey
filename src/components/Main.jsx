@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { Home, Nav, Register, Login, Dashboard, DashNav, Administration } from './Index.jsx';
+import { Home, Nav, Register, Login, Dashboard, DashNav, Administration, PastRoster } from './Index.jsx';
 import './Main.css';
 import { getMe } from "../api-client/auth.js";
+import { getAllHistory, getAllPickedUp } from '../api-client'
 
 
 const Main = () => {
   const [user, setUser] = useState({});
   const [token, setToken] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+ 
   const location = useLocation();
-  const navigate = useNavigate();
+  
+ 
+
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -32,7 +36,7 @@ const Main = () => {
 
   return (
     <>
-    {location.pathname !== '/register' && location.pathname !== '/login' && location.pathname !== '/dashboard' && location.pathname !== '/PPEStaff' && (
+    {location.pathname !== '/register' && location.pathname !== '/login' && location.pathname !== '/dashboard' && location.pathname !== '/admin' && location.pathname !== '/history' && (
       <Nav />
     )}
       <Routes>
@@ -53,8 +57,12 @@ const Main = () => {
         element={<Dashboard isLoggedIn={isLoggedIn} setUser={setUser} setToken={setToken}/>}
         />
         <Route 
-        path='/PPEStaff'
+        path='/admin'
         element={<Administration user={user} token={token}/>}
+        />
+        <Route 
+        path='/history'
+        element={<PastRoster />}
         />
       </Routes>
     </>

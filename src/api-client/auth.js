@@ -1,7 +1,7 @@
-const BASE = 'http://localhost:8080/api';
+// const BASE = 'http://localhost:8080/api';
 
 // deployment
-// const BASE = 'api';
+const BASE = 'api';
 
 export const getMe = async (token) => {
   try {

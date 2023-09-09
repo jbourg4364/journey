@@ -32,7 +32,16 @@ const DashNav = ({ setIsLoggedIn, setUser, setToken }) => {
       <div id='middle-container'>
         <h3>{username}</h3>
         {isAdmin ? (
-        <i id='past-rosters' className="fa-solid fa-clipboard fa-2xl"></i>
+          <div>
+            <NavLink to='/admin'>
+              <i id='past-rosters' className="fa-solid fa-house fa-lg"></i>
+            </NavLink>
+            <NavLink to='/history'>
+              <i id='past-rosters' className="fa-solid fa-clipboard fa-xl"></i>
+            </NavLink>
+          
+          </div>
+          
         ) : null
       } 
       </div>
