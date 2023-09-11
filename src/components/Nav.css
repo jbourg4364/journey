@@ -22,7 +22,7 @@
   font-weight: 800;
   font-family: 'Baloo Bhaijaan 2', cursive;
   letter-spacing: 1px;
-  
+  margin-left: 10px;
 }
 
 .nav h2 {
@@ -58,6 +58,7 @@
     background-color: #0164ff;
     color: white;
     border-radius: .3rem;
+    margin-right: 10px;
 }
 
 @media screen and (max-width: 800px) {

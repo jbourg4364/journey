@@ -3,19 +3,15 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { Home, Nav, Register, Login, Dashboard, DashNav, Administration, PastRoster } from './Index.jsx';
 import './Main.css';
 import { getMe } from "../api-client/auth.js";
-import { getAllHistory, getAllPickedUp } from '../api-client'
 
 
 const Main = () => {
   const [user, setUser] = useState({});
   const [token, setToken] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
- 
   const location = useLocation();
+  const navigate = useNavigate();
   
- 
-
-
   useEffect(() => {
     const fetchUser = async () => {
       if (token) {
@@ -33,6 +29,7 @@ const Main = () => {
     };
     fetchUser();
   }, []);
+
 
   return (
     <>

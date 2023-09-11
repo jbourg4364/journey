@@ -71,7 +71,7 @@ const Administration = () => {
               <li key={child.id}>
                 {child.children}
                 <p>
-                  <strong>Parent: </strong>
+                  <strong>Driver: </strong>
                   {child.firstname} {child.lastname}
                 </p>
                 <hr></hr>
@@ -106,7 +106,6 @@ const Administration = () => {
             </div>
           ) : (
             <div>
-              <hr></hr>
               <h3 id="queue-heading">No pickups for today.</h3>
             </div>
           )}

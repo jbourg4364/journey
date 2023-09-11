@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './DashNav.css';
 
 
-const DashNav = ({ setIsLoggedIn, setUser, setToken }) => {
+const DashNav = ({ setIsLoggedIn, setUser, setToken, isLoggedIn }) => {
   const username = localStorage.getItem('currentUser');
   const [isAdmin, setIsAdmin] = useState(false);
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (username === 'admin') {
     setIsAdmin(true);
   };
-  }, [])
+  }, []);
+
 
 
     const handleLogout = () => {
@@ -22,9 +24,6 @@ const DashNav = ({ setIsLoggedIn, setUser, setToken }) => {
         setIsLoggedIn(false);
         setToken('');
     };
-
-
-
 
   return (
     <div id='nav'>
@@ -45,7 +44,7 @@ const DashNav = ({ setIsLoggedIn, setUser, setToken }) => {
         ) : null
       } 
       </div>
-        <NavLink to='/login' className='nav-link' onClick={handleLogout}>
+        <NavLink to='/login' id='logout' className='nav-link' onClick={handleLogout}>
           Log Out
         </NavLink>
     </div>

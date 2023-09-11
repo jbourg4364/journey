@@ -3,7 +3,7 @@ import { DashNav } from "./Index";
 import "./Dashboard.css";
 import { getStatus, updateStatus } from "../api-client";
 
-const Dashboard = ({ setIsLoggedIn, setUser, setToken }) => {
+const Dashboard = ({ setIsLoggedIn, setUser, setToken, isLoggedIn }) => {
   const [joinView, setJoin] = useState(true);
   const [currentStatus, setCurrentStatus] = useState("");
   const userId = localStorage.getItem("id");
@@ -50,6 +50,7 @@ const Dashboard = ({ setIsLoggedIn, setUser, setToken }) => {
         setIsLoggedIn={setIsLoggedIn}
         setUser={setUser}
         setToken={setToken}
+        isLoggedIn={isLoggedIn}
       />
       <div id="dashboard">
         <h2 id="school-name">Pierre Part Elementary School</h2>
